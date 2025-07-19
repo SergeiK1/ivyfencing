@@ -1,0 +1,376 @@
+/* Score Container */
+.score-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Score Card */
+.score-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.score-card:hover {
+  box-shadow: 0 12px 40px rgba(34, 139, 34, 0.15);
+  border-color: #228B22;
+}
+
+/* Score Header */
+.score-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.score-title {
+  color: #228B22;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.score-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Score Placeholder */
+.score-placeholder {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  border: 2px dashed #dee2e6;
+}
+
+.score-message {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin: 15px 0 0 0;
+}
+
+/* Score Matchup */
+.score-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.score-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 200px;
+}
+
+.score-team-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.score-team-logo:hover {
+  transform: scale(1.05);
+}
+
+.score-team-name {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.score-total {
+  background: #228B22;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 25px;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+/* Score VS Section */
+.score-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.score-vs-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #228B22;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.score-match-info {
+  text-align: center;
+}
+
+.score-total-matches {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  border: 1px solid #dee2e6;
+}
+
+/* Score Breakdown */
+.score-breakdown {
+  margin-bottom: 30px;
+}
+
+.score-breakdown-title {
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #228B22;
+  padding-bottom: 10px;
+}
+
+.score-weapons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.score-weapon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.score-weapon-row:hover {
+  border-color: #228B22;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.1);
+  transform: translateY(-2px);
+}
+
+.score-weapon-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.score-weapon-scores {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.score-weapon-team1,
+.score-weapon-team2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #228B22;
+  min-width: 30px;
+  text-align: center;
+}
+
+.score-weapon-divider {
+  color: #666;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Score Footer */
+.score-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #dee2e6;
+}
+
+.score-last-updated {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0 0 15px 0;
+  font-style: italic;
+}
+
+.score-back-btn {
+  padding: 10px 20px;
+  background-color: #228B22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.2);
+}
+
+.score-back-btn:hover {
+  background-color: #1e7b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .score-container {
+    padding: 15px;
+  }
+  
+  .score-card {
+    padding: 20px;
+  }
+  
+  .score-title {
+    font-size: 1.8rem;
+  }
+  
+  .score-subtitle {
+    font-size: 1rem;
+  }
+  
+  .score-matchup {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .score-team {
+    max-width: none;
+    width: 100%;
+  }
+  
+  .score-team-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .score-team-name {
+    font-size: 1.1rem;
+  }
+  
+  .score-total {
+    font-size: 1.5rem;
+    padding: 10px 16px;
+  }
+  
+  .score-vs {
+    margin: 0;
+    order: -1;
+  }
+  
+  .score-vs-text {
+    font-size: 1.4rem;
+  }
+  
+  .score-weapon-row {
+    padding: 12px 15px;
+  }
+  
+  .score-weapon-label {
+    font-size: 1rem;
+  }
+  
+  .score-weapon-scores {
+    gap: 10px;
+  }
+  
+  .score-weapon-team1,
+  .score-weapon-team2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-title {
+    font-size: 1.5rem;
+  }
+  
+  .score-card {
+    padding: 15px;
+  }
+  
+  .score-matchup {
+    padding: 15px;
+  }
+  
+  .score-team-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .score-team-name {
+    font-size: 1rem;
+  }
+  
+  .score-total {
+    font-size: 1.3rem;
+    padding: 8px 12px;
+  }
+  
+  .score-breakdown-title {
+    font-size: 1.2rem;
+  }
+  
+  .score-weapon-row {
+    padding: 10px 12px;
+  }
+  
+  .score-weapon-label {
+    font-size: 0.9rem;
+  }
+  
+  .score-weapon-team1,
+  .score-weapon-team2 {
+    font-size: 1rem;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .score-weapon-row:hover {
+    transform: none;
+    border-color: #f0f0f0;
+  }
+  
+  .score-team-logo:hover {
+    transform: none;
+  }
+  
+  .score-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-color: #f0f0f0;
+  }
+}

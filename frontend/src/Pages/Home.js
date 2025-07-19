@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Css/Home.css';
 
 function Home() {
+  const navigate = useNavigate();
   const [gender, setGender] = useState('women');
   const [team1, setTeam1] = useState(null);
   const [team2, setTeam2] = useState(null);
@@ -166,15 +168,23 @@ function Home() {
          </div>
 
          {team1 && team2 && (
-           <div className="home-matchup-ready">
-             <p className="home-matchup-text">
-               Ready for {gender}'s match: {team1.name} vs {team2.name}
-             </p>
-             <button className="home-reset-btn" onClick={resetSelection}>
-               Reset Selection
-             </button>
-           </div>
-         )}
+          <div className="home-matchup-ready">
+            <p className="home-matchup-text">
+              Matchup Ready: {team1.name} vs {team2.name}
+            </p>
+            <div className="home-action-buttons">
+              <button 
+                className="home-view-scores-btn" 
+                onClick={() => navigate('/scores', { state: { team1, team2, gender } })}
+              >
+                View Rivalry Scores
+              </button>
+              <button className="home-reset-btn" onClick={resetSelection}>
+                Reset Selection
+              </button>
+            </div>
+          </div>
+        )}
        </div>
 
        {/* Available Schools */}
