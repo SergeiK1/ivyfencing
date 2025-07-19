@@ -1,0 +1,341 @@
+/* Container and Layout */
+.home-container {
+  padding: 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.home-title {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Gender Toggle */
+.home-gender-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.home-toggle-btn {
+  padding: 12px 24px;
+  border: 2px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.home-toggle-btn:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.home-toggle-btn.home-active {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Section Titles */
+.home-section-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Schools Section */
+.home-schools-section {
+  margin-bottom: 50px;
+}
+
+.home-schools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.home-school-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  cursor: grab;
+  transition: all 0.3s ease;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-school-item:hover {
+  border-color: #007bff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+.home-school-item:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.home-school-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.home-school-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* Teams Section */
+.home-teams-section {
+  margin-bottom: 40px;
+}
+
+.home-teams-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.home-team-slot {
+  width: 200px;
+  height: 200px;
+  border: 3px dashed #dee2e6;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.home-team-slot:hover {
+  border-color: #007bff;
+  background-color: #e3f2fd;
+}
+
+.home-empty-slot {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px;
+}
+
+.home-selected-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.home-selected-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.home-selected-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.home-clear-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.home-clear-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+}
+
+.home-vs-divider {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Matchup Ready Section */
+.home-matchup-ready {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #d4edda;
+  border: 2px solid #c3e6cb;
+  border-radius: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-matchup-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #155724;
+  margin-bottom: 15px;
+}
+
+.home-reset-btn {
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.home-reset-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 15px;
+  }
+  
+  .home-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .home-schools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .home-school-item {
+    padding: 10px;
+  }
+  
+  .home-school-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .home-school-name {
+    font-size: 0.8rem;
+  }
+  
+  .home-teams-container {
+     gap: 15px;
+   }
+   
+   .home-team-slot {
+     width: 140px;
+     height: 140px;
+   }
+   
+   .home-selected-logo {
+     width: 50px;
+     height: 50px;
+   }
+   
+   .home-vs-divider {
+     font-size: 1.2rem;
+   }
+  
+  .home-toggle-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.5rem;
+  }
+  
+  .home-schools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .home-team-slot {
+     width: 120px;
+     height: 120px;
+   }
+   
+   .home-selected-logo {
+     width: 40px;
+     height: 40px;
+   }
+   
+   .home-selected-name {
+     font-size: 0.9rem;
+   }
+   
+   .home-vs-divider {
+     font-size: 1rem;
+   }
+  
+  .home-matchup-text {
+    font-size: 1rem;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .home-school-item:hover {
+    transform: none;
+    border-color: #e9ecef;
+  }
+  
+  .home-school-item:active {
+    transform: scale(0.95);
+    border-color: #007bff;
+  }
+  
+  .home-team-slot:hover {
+    border-color: #dee2e6;
+    background-color: #f8f9fa;
+  }
+}
