@@ -45,18 +45,18 @@ function Admin() {
 
 
 
-  const autoSave = () => {
-    if (selectedTeam1 && selectedTeam2 && selectedTeam1 !== selectedTeam2) {
-      const success1 = updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, team1Scores);
-      const success2 = updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, team2Scores);
+  // const autoSave = () => {
+  //   if (selectedTeam1 && selectedTeam2 && selectedTeam1 !== selectedTeam2) {
+  //     const success1 = updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, team1Scores);
+  //     const success2 = updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, team2Scores);
       
-      if (success1 && success2) {
-        setExistingRivalries(getRivalriesByGender(gender));
-        setSaveStatus('Auto-saved!');
-        setTimeout(() => setSaveStatus(''), 1500);
-      }
-    }
-  };
+  //     if (success1 && success2) {
+  //       setExistingRivalries(getRivalriesByGender(gender));
+  //       setSaveStatus('Auto-saved!');
+  //       setTimeout(() => setSaveStatus(''), 1500);
+  //     }
+  //   }
+  // };
 
   const handleTeam1ScoreChange = (weapon, value) => {
     const newScores = {
