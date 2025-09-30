@@ -1,11 +1,657 @@
 .admin-container {
   padding: 20px;
-  text-align: center;
-  background-color: #f5f5f5;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .admin-title {
   color: #228B22;
-  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Gender Toggle */
+.admin-gender-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.admin-toggle-btn {
+  padding: 12px 24px;
+  border: 2px solid #228B22;
+  background-color: white;
+  color: #228B22;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.admin-toggle-btn:hover {
+  background-color: rgba(34, 139, 34, 0.1);
+}
+
+.admin-toggle-btn.admin-active {
+  background-color: #228B22;
+  color: white;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
+}
+
+/* Section Titles */
+.admin-section-title {
+  color: #333;
+  font-size: 1.5rem;
   margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Team Selection */
+.admin-team-selection {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-team-selectors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.admin-team-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-team-selector label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Go Button */
+.admin-go-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.admin-go-btn {
+  background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-go-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);
+  background: linear-gradient(135deg, #1e7b1e 0%, #28a428 100%);
+}
+
+.admin-go-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
+}
+
+/* Custom Dropdown Styles */
+.admin-custom-dropdown {
+  position: relative;
+  min-width: 200px;
+}
+
+.admin-dropdown-selected {
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  min-height: 50px;
+}
+
+.admin-dropdown-selected:hover {
+  border-color: #228B22;
+}
+
+.admin-dropdown-selected.admin-dropdown-open {
+  border-color: #228B22;
+  box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.1);
+}
+
+.admin-dropdown-selected-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-dropdown-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.admin-dropdown-placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.admin-dropdown-arrow {
+  color: #666;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.admin-dropdown-open .admin-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.admin-dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #228B22;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.admin-dropdown-option {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.admin-dropdown-option:hover {
+  background-color: rgba(34, 139, 34, 0.1);
+}
+
+.admin-dropdown-option:last-child {
+  border-bottom: none;
+}
+
+/* Legacy select styles for fallback */
+.admin-select {
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 150px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.admin-select:focus {
+  outline: none;
+  border-color: #228B22;
+  box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.1);
+}
+
+.admin-vs-divider {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #228B22;
+  padding: 10px;
+}
+
+/* Score Input Section */
+.admin-score-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-score-input-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.admin-team-score-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fafafa;
+  transition: border-color 0.3s ease;
+}
+
+.admin-team-score-card:hover {
+  border-color: #228B22;
+}
+
+.admin-team-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.admin-team-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.admin-team-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.admin-weapon-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-weapon-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-weapon-input label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Custom Number Input Styles */
+.admin-custom-number-input {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.admin-custom-number-input:hover {
+  border-color: #228B22;
+}
+
+.admin-number-btn {
+  width: 35px;
+  height: 40px;
+  border: none;
+  background: #f8f9fa;
+  color: #333;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-number-btn:hover:not(:disabled) {
+  background: #228B22;
+  color: white;
+}
+
+.admin-number-btn:disabled {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.admin-minus-btn {
+  border-right: 1px solid #ddd;
+}
+
+.admin-plus-btn {
+  border-left: 1px solid #ddd;
+}
+
+.admin-number-display {
+  min-width: 60px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: white;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.admin-number-display:hover {
+  background: rgba(34, 139, 34, 0.05);
+}
+
+.admin-number-edit-input {
+  min-width: 60px;
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: rgba(34, 139, 34, 0.1);
+}
+
+/* Legacy score input styles for fallback */
+.admin-score-input {
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 80px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.admin-score-input:focus {
+  outline: none;
+  border-color: #228B22;
+  box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.1);
+}
+
+.admin-total-score {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #228B22;
+  text-align: center;
+  padding: 10px;
+  background: rgba(34, 139, 34, 0.1);
+  border-radius: 8px;
+}
+
+/* Action Buttons */
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-save-btn, .admin-clear-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-save-btn {
+  background-color: #228B22;
+  color: white;
+}
+
+.admin-save-btn:hover {
+  background-color: #1e7b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+.admin-clear-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.admin-clear-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Status Messages */
+.admin-status {
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.admin-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.admin-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Existing Rivalries */
+.admin-existing-rivalries {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-rivalries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Enhanced Rivalry Card Styles */
+.admin-rivalry-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.admin-rivalry-card:hover {
+  border-color: #228B22;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.1);
+}
+
+.admin-rivalry-clickable {
+  cursor: pointer;
+}
+
+.admin-rivalry-clickable:hover {
+  background: rgba(34, 139, 34, 0.02);
+}
+
+.admin-rivalry-header {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.admin-rivalry-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-rivalry-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.admin-rivalry-vs {
+  color: #228B22;
+  font-weight: bold;
+  margin: 0 4px;
+}
+
+.admin-rivalry-click-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #228B22;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.admin-rivalry-clickable:hover .admin-rivalry-click-hint {
+  opacity: 1;
+}
+
+.admin-rivalry-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.admin-rivalry-team {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.admin-rivalry-updated {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 15px;
+  }
+  
+  .admin-title {
+    font-size: 2rem;
+  }
+  
+  .admin-team-selectors {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .admin-custom-dropdown {
+    min-width: 250px;
+    width: 100%;
+  }
+  
+  .admin-dropdown-selected {
+    min-height: 55px;
+    padding: 14px 16px;
+  }
+  
+  .admin-dropdown-logo {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .admin-score-input-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .admin-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .admin-save-btn, .admin-clear-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .admin-rivalries-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-weapon-input {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .admin-custom-number-input {
+    align-self: center;
+    min-width: 140px;
+  }
+  
+  .admin-number-btn {
+    width: 40px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .admin-number-display {
+    min-width: 70px;
+    padding: 10px 14px;
+    font-size: 1.2rem;
+  }
+  
+  .admin-number-edit-input {
+    min-width: 70px;
+    padding: 10px 14px;
+    font-size: 1.2rem;
+  }
+  
+  .admin-rivalry-teams {
+    gap: 6px;
+  }
+  
+  .admin-rivalry-logo {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Legacy styles for fallback */
+  .admin-score-input {
+    width: 100px;
+  }
 }

@@ -37,6 +37,11 @@ function Home() {
   };
 
   const handleSchoolClick = (school) => {
+    // Prevent selecting the same school twice
+    if ((team1 && team1.name === school.name) || (team2 && team2.name === school.name)) {
+      return;
+    }
+
     if (!team1) {
       setTeam1(school);
     } else if (!team2) {
@@ -56,6 +61,13 @@ function Home() {
   const handleDrop = (e, teamSlot) => {
     e.preventDefault();
     if (draggedSchool) {
+      // Prevent dropping the same school twice
+      if ((team1 && team1.name === draggedSchool.name && teamSlot !== 'team1') || 
+          (team2 && team2.name === draggedSchool.name && teamSlot !== 'team2')) {
+        setDraggedSchool(null);
+        return;
+      }
+
       if (teamSlot === 'team1') {
         setTeam1(draggedSchool);
       } else {

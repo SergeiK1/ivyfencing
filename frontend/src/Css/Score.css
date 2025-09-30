@@ -192,17 +192,52 @@
 .score-weapon-scores {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
+  justify-content: center;
+  flex: 1;
+  margin: 0 20px;
+  min-width: 0;
 }
 
-.score-weapon-team1,
-.score-weapon-team2 {
-  font-size: 1.2rem;
+.score-team1-score,
+.score-team2-score {
+  font-size: 1.3rem;
   font-weight: bold;
   color: #228B22;
-  min-width: 30px;
+  min-width: 40px;
+  width: 40px;
   text-align: center;
+  background: rgba(34, 139, 34, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(34, 139, 34, 0.2);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
+
+.winning-score {
+  background: rgba(34, 139, 34, 0.15) !important;
+  color: #228B22 !important;
+  border: 3px solid #24a45b !important;
+  box-shadow: 0 0 15px rgba(22, 228, 122, 0.4);
+  transform: scale(1.05);
+  font-weight: 900;
+}
+
+.tied-score {
+  border: 3px solid #2a2a2a !important;
+  box-shadow: 0 0 10px rgba(151, 149, 149, 0.3);
+  font-weight: 700;
+}
+
+.score-divider {
+  color: #666;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 4px;
+}
+
+
 
 .score-weapon-divider {
   color: #666;
@@ -304,12 +339,20 @@
   }
   
   .score-weapon-scores {
-    gap: 10px;
+    gap: 6px;
+    margin: 0 10px;
   }
   
-  .score-weapon-team1,
-  .score-weapon-team2 {
+  .score-team1-score,
+  .score-team2-score {
     font-size: 1.1rem;
+    min-width: 30px;
+    padding: 6px 10px;
+  }
+  
+  .score-divider {
+    font-size: 1.1rem;
+    margin: 0 2px;
   }
 }
 
@@ -352,10 +395,33 @@
     font-size: 0.9rem;
   }
   
-  .score-weapon-team1,
-  .score-weapon-team2 {
-    font-size: 1rem;
+  .score-weapon-scores {
+    gap: 4px;
+    margin: 0 8px;
   }
+  
+  .score-team1-score,
+  .score-team2-score {
+    font-size: 1rem;
+    min-width: 28px;
+    padding: 5px 8px;
+  }
+
+  .winning-score {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  }
+
+  .tied-score {
+    box-shadow: 0 0 8px rgba(192, 192, 192, 0.3);
+  }
+
+  .score-divider {
+    font-size: 1rem;
+    margin: 0 1px;
+  }
+  
+  
 }
 
 /* Touch device improvements */
