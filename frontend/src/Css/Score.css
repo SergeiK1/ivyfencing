@@ -1,4 +1,67 @@
-/* Score Container */
+/* Score Page Container */
+.score-page-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.score-page-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.score-page-title {
+  color: #228B22;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.score-page-gender {
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.score-page-back-btn {
+  padding: 10px 20px;
+  background-color: #228B22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.2);
+}
+
+.score-page-back-btn:hover {
+  background-color: #1e7b1e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+/* Score Cards Grid */
+.score-cards-grid {
+  display: flex;
+  gap: 25px;
+  align-items: start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.score-cards-grid .score-card {
+  flex: 1 1 350px;
+  max-width: 600px;
+}
+
+/* Old Score Container (for placeholder) */
 .score-container {
   padding: 20px;
   max-width: 800px;
@@ -14,6 +77,31 @@
   padding: 30px;
   border: 2px solid #f0f0f0;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.score-card-delete-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.score-card-delete-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
 }
 
 .score-card:hover {
@@ -80,8 +168,8 @@
 }
 
 .score-team-logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   margin-bottom: 15px;
   border-radius: 8px;
@@ -166,13 +254,14 @@
 
 .score-weapon-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 15px 20px;
   background: white;
   border: 2px solid #f0f0f0;
   border-radius: 10px;
   transition: all 0.3s ease;
+  gap: 15px;
 }
 
 .score-weapon-row:hover {
@@ -187,6 +276,9 @@
   color: #333;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  width: 70px;
+  text-align: left;
+  flex-shrink: 0;
 }
 
 .score-weapon-scores {
@@ -195,7 +287,6 @@
   gap: 8px;
   justify-content: center;
   flex: 1;
-  margin: 0 20px;
   min-width: 0;
 }
 
@@ -215,19 +306,19 @@
   flex-shrink: 0;
 }
 
-.winning-score {
-  background: rgba(34, 139, 34, 0.15) !important;
-  color: #228B22 !important;
-  border: 3px solid #24a45b !important;
-  box-shadow: 0 0 15px rgba(22, 228, 122, 0.4);
-  transform: scale(1.05);
-  font-weight: 900;
+.score-winner-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
-.tied-score {
-  border: 3px solid #2a2a2a !important;
-  box-shadow: 0 0 10px rgba(151, 149, 149, 0.3);
-  font-weight: 700;
+.score-winner-logo-placeholder {
+  width: 55px;
+  height: 55px;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .score-divider {
@@ -280,50 +371,79 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  .score-page-container {
+    padding: 15px;
+  }
+
+  .score-page-title {
+    font-size: 2rem;
+  }
+
+  .score-page-gender {
+    font-size: 1rem;
+  }
+
+  .score-cards-grid {
+    display: block;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .score-cards-grid .score-card {
+    margin-bottom: 20px;
+  }
+
+  .score-cards-grid .score-card:last-child {
+    margin-bottom: 0;
+  }
+
   .score-container {
     padding: 15px;
   }
-  
+
   .score-card {
     padding: 20px;
   }
-  
+
   .score-title {
     font-size: 1.8rem;
   }
-  
+
   .score-subtitle {
     font-size: 1rem;
   }
   
   .score-matchup {
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    flex-direction: row;
+    gap: 10px;
+    padding: 15px 10px;
   }
-  
+
   .score-team {
     max-width: none;
-    width: 100%;
+    width: auto;
+    flex: 1;
   }
-  
+
   .score-team-logo {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
   }
-  
+
   .score-team-name {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
-  
+
   .score-total {
-    font-size: 1.5rem;
-    padding: 10px 16px;
+    font-size: 1.3rem;
+    padding: 8px 12px;
   }
-  
+
   .score-vs {
-    margin: 0;
-    order: -1;
+    margin: 0 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #228B22;
   }
   
   .score-vs-text {
@@ -332,24 +452,38 @@
   
   .score-weapon-row {
     padding: 12px 15px;
+    gap: 10px;
   }
-  
+
   .score-weapon-label {
     font-size: 1rem;
+    width: 60px;
   }
-  
+
   .score-weapon-scores {
     gap: 6px;
-    margin: 0 10px;
+    flex: 1;
+    justify-content: center;
   }
-  
+
   .score-team1-score,
   .score-team2-score {
     font-size: 1.1rem;
     min-width: 30px;
+    width: 30px;
     padding: 6px 10px;
   }
-  
+
+  .score-winner-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .score-winner-logo-placeholder {
+    width: 42px;
+    height: 42px;
+  }
+
   .score-divider {
     font-size: 1.1rem;
     margin: 0 2px;
@@ -357,30 +491,66 @@
 }
 
 @media (max-width: 480px) {
+  .score-page-title {
+    font-size: 1.6rem;
+  }
+
+  .score-page-gender {
+    font-size: 0.9rem;
+  }
+
+  .score-cards-grid {
+    display: block;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .score-cards-grid .score-card {
+    margin-bottom: 15px;
+  }
+
+  .score-cards-grid .score-card:last-child {
+    margin-bottom: 0;
+  }
+
   .score-title {
     font-size: 1.5rem;
   }
-  
+
   .score-card {
     padding: 15px;
   }
-  
-  .score-matchup {
-    padding: 15px;
+
+  .score-card-delete-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
   }
-  
+
+  .score-matchup {
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
   .score-team-logo {
     width: 50px;
     height: 50px;
   }
-  
+
   .score-team-name {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
-  
+
   .score-total {
-    font-size: 1.3rem;
-    padding: 8px 12px;
+    font-size: 1.2rem;
+    padding: 6px 10px;
+  }
+
+  .score-vs {
+    margin: 0 3px;
+    font-size: 1rem;
   }
   
   .score-breakdown-title {
@@ -389,39 +559,44 @@
   
   .score-weapon-row {
     padding: 10px 12px;
+    gap: 8px;
   }
-  
+
   .score-weapon-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    width: 50px;
   }
-  
+
   .score-weapon-scores {
     gap: 4px;
-    margin: 0 8px;
+    flex: 1;
+    justify-content: center;
   }
-  
+
   .score-team1-score,
   .score-team2-score {
     font-size: 1rem;
     min-width: 28px;
+    width: 28px;
     padding: 5px 8px;
   }
 
-  .winning-score {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  .score-winner-logo {
+    width: 32px;
+    height: 32px;
   }
 
-  .tied-score {
-    box-shadow: 0 0 8px rgba(192, 192, 192, 0.3);
+  .score-winner-logo-placeholder {
+    width: 32px;
+    height: 32px;
   }
 
   .score-divider {
     font-size: 1rem;
     margin: 0 1px;
   }
-  
-  
+
+
 }
 
 /* Touch device improvements */
