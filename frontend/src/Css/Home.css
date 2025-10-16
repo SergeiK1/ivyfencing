@@ -497,6 +497,19 @@
   .home-add-match-text {
     font-size: 0.75rem;
   }
+
+  .home-footer {
+    bottom: 10px;
+    right: 15px;
+  }
+
+  .home-footer-name {
+    font-size: 0.7rem;
+  }
+
+  .home-footer-suggestions {
+    font-size: 0.6rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -582,6 +595,41 @@
   .home-add-match-text {
     font-size: 0.7rem;
   }
+
+  .home-footer {
+    bottom: 8px;
+    right: 12px;
+  }
+
+  .home-footer-name {
+    font-size: 0.65rem;
+  }
+
+  .home-footer-suggestions {
+    font-size: 0.55rem;
+  }
+}
+
+/* Footer */
+.home-footer {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  text-align: right;
+  z-index: 100;
+}
+
+.home-footer-name {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.home-footer-suggestions {
+  font-size: 0.65rem;
+  color: #999;
+  font-weight: 400;
 }
 
 /* Touch device improvements */
@@ -590,12 +638,12 @@
     transform: none;
     border-color: #e9ecef;
   }
-  
+
   .home-school-item:active {
     transform: scale(0.95);
     border-color: #228B22;
   }
-  
+
   .home-team-slot:hover {
     border-color: #dee2e6;
     background-color: #f8f9fa;

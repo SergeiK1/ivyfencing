@@ -340,6 +340,12 @@ function Home() {
            })}
          </div>
        </div>
+
+       {/* Footer */}
+       <div className="home-footer">
+         <div className="home-footer-name">Made by Sergei</div>
+         <div className="home-footer-suggestions">Suggestions Welcome</div>
+       </div>
     </div>
   );
 }

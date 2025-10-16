@@ -488,6 +488,19 @@
     font-size: 1.1rem;
     margin: 0 2px;
   }
+
+  .score-footer-credits {
+    bottom: 10px;
+    right: 15px;
+  }
+
+  .score-footer-name {
+    font-size: 0.7rem;
+  }
+
+  .score-footer-suggestions {
+    font-size: 0.6rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -596,7 +609,40 @@
     margin: 0 1px;
   }
 
+  .score-footer-credits {
+    bottom: 8px;
+    right: 12px;
+  }
 
+  .score-footer-name {
+    font-size: 0.65rem;
+  }
+
+  .score-footer-suggestions {
+    font-size: 0.55rem;
+  }
+}
+
+/* Footer */
+.score-footer-credits {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  text-align: right;
+  z-index: 100;
+}
+
+.score-footer-name {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.score-footer-suggestions {
+  font-size: 0.65rem;
+  color: #999;
+  font-weight: 400;
 }
 
 /* Touch device improvements */
@@ -605,11 +651,11 @@
     transform: none;
     border-color: #f0f0f0;
   }
-  
+
   .score-team-logo:hover {
     transform: none;
   }
-  
+
   .score-card:hover {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border-color: #f0f0f0;

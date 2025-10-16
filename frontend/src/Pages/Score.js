@@ -194,6 +194,12 @@ function Score() {
           />
         ))}
       </div>
+
+      {/* Footer */}
+      <div className="score-footer-credits">
+        <div className="score-footer-name">Made by Sergei</div>
+        <div className="score-footer-suggestions">Suggestions Welcome</div>
+      </div>
     </div>
   );
 }
