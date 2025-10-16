@@ -165,6 +165,7 @@
   align-items: center;
   flex: 1;
   max-width: 200px;
+  position: relative;
 }
 
 .score-team-logo {
@@ -229,6 +230,50 @@
   padding: 6px 12px;
   border-radius: 15px;
   border: 1px solid #dee2e6;
+}
+
+/* Clinch Bars */
+.score-clinch-bar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: calc(100% - 20px);
+  top: 10px;
+}
+
+.score-clinch-bar-left {
+  right: -20px;
+}
+
+.score-clinch-bar-right {
+  left: -20px;
+}
+
+.score-clinch-square {
+  width: 12px;
+  height: calc((100% - 26px) / 13);
+  background-color: #e9ecef;
+  border: 1px solid #dee2e6;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.score-clinch-square.filled {
+  background-color: #228B22;
+  border-color: #1e7b1e;
+}
+
+.score-clinch-square.winning-square {
+  height: calc((100% - 26px) / 13 + 10px);
+  border: 2px solid #FFD700;
+  border-radius: 3px;
+}
+
+.score-clinch-square.winning-square.filled {
+  background-color: #228B22;
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 /* Score Breakdown */
@@ -501,6 +546,18 @@
   .score-footer-suggestions {
     font-size: 0.6rem;
   }
+
+  .score-clinch-bar-left {
+    right: -15px;
+  }
+
+  .score-clinch-bar-right {
+    left: -15px;
+  }
+
+  .score-clinch-square {
+    width: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -620,6 +677,22 @@
 
   .score-footer-suggestions {
     font-size: 0.55rem;
+  }
+
+  .score-clinch-bar-left {
+    right: -12px;
+  }
+
+  .score-clinch-bar-right {
+    left: -12px;
+  }
+
+  .score-clinch-square {
+    width: 8px;
+  }
+
+  .score-clinch-bar {
+    gap: 1px;
   }
 }
 

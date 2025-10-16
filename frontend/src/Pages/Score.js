@@ -35,11 +35,45 @@ function ScoreCard({ matchup, gender, onDelete, showDelete }) {
           />
           <h2 className="score-team-name">{team1.name}</h2>
           <div className="score-total">{rivalryData.scores[team1.name]?.total || 0}</div>
+
+          {/* Clinch Bar for Team 1 - positioned on right (inside) */}
+          <div className="score-clinch-bar score-clinch-bar-left">
+            {[...Array(14)].map((_, index) => {
+              const squareNumber = 14 - index; // Count from bottom to top
+              const team1Total = rivalryData.scores[team1.name]?.total || 0;
+              const isFilled = team1Total >= squareNumber;
+              const isWinningSquare = squareNumber === 14;
+
+              return (
+                <div
+                  key={index}
+                  className={`score-clinch-square ${isFilled ? 'filled' : ''} ${isWinningSquare ? 'winning-square' : ''}`}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <div className="score-vs">VS</div>
 
         <div className="score-team">
+          {/* Clinch Bar for Team 2 - positioned on left (inside) */}
+          <div className="score-clinch-bar score-clinch-bar-right">
+            {[...Array(14)].map((_, index) => {
+              const squareNumber = 14 - index; // Count from bottom to top
+              const team2Total = rivalryData.scores[team2.name]?.total || 0;
+              const isFilled = team2Total >= squareNumber;
+              const isWinningSquare = squareNumber === 14;
+
+              return (
+                <div
+                  key={index}
+                  className={`score-clinch-square ${isFilled ? 'filled' : ''} ${isWinningSquare ? 'winning-square' : ''}`}
+                />
+              );
+            })}
+          </div>
+
           <img
             src={team2.logo}
             alt={team2.name}
