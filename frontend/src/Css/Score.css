@@ -439,29 +439,39 @@
 @media (min-width: 1920px) {
   .score-page-container {
     max-width: 100%;
-    padding: 40px;
-    min-height: 100vh;
+    padding: 2vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .score-page-header {
-    margin-bottom: 40px;
+    margin-bottom: 2vh;
+    padding-bottom: 1vh;
   }
 
   .score-page-title {
-    font-size: 4rem;
+    font-size: 3rem;
+    margin-bottom: 0.5vh;
   }
 
   .score-page-gender {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1vh;
+  }
+
+  .score-page-back-btn {
+    padding: 8px 16px;
+    font-size: 1rem;
   }
 
   .score-cards-grid {
     flex: 1;
     display: flex;
-    gap: 40px;
+    gap: 2vw;
     align-items: stretch;
+    overflow: hidden;
   }
 
   .score-cards-grid .score-card {
@@ -469,60 +479,61 @@
     max-width: none;
     display: flex;
     flex-direction: column;
-    min-height: 80vh;
+    overflow: hidden;
   }
 
   .score-card {
-    padding: 50px;
+    padding: 2vh 2vw;
   }
 
   .score-matchup {
-    padding: 40px;
-    margin-bottom: 50px;
+    padding: 2vh 2vw;
+    margin-bottom: 2vh;
   }
 
   .score-team-logo {
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1vh;
   }
 
   .score-team-name {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 1vh;
   }
 
   .score-total {
-    font-size: 3.5rem;
-    padding: 20px 35px;
-    min-width: 100px;
-    gap: 12px;
+    font-size: 2.5rem;
+    padding: 1vh 2vw;
+    min-width: 80px;
+    gap: 10px;
   }
 
   .score-total-crown {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
   }
 
   .score-vs {
-    font-size: 3rem;
-    margin: 0 40px;
+    font-size: 2rem;
+    margin: 0 2vw;
   }
 
   .score-clinch-square {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 
   .score-clinch-bar {
-    gap: 4px;
+    gap: 3px;
   }
 
   .score-clinch-bar-left {
-    right: -30px;
+    right: -25px;
   }
 
   .score-clinch-bar-right {
-    left: -30px;
+    left: -25px;
   }
 
   .score-breakdown {
@@ -530,70 +541,73 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 2vh;
+    overflow: hidden;
   }
 
   .score-breakdown h3 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 1.8rem;
+    margin-bottom: 1.5vh;
   }
 
   .score-weapon-row {
-    padding: 25px 35px;
-    gap: 25px;
-    margin-bottom: 15px;
+    padding: 1.5vh 2vw;
+    gap: 1.5vw;
+    margin-bottom: 0.5vh;
   }
 
   .score-weapon-label {
-    font-size: 2rem;
-    width: 150px;
+    font-size: 1.5rem;
+    width: 120px;
   }
 
   .score-weapon-scores {
-    gap: 15px;
+    gap: 1vw;
   }
 
   .score-team1-score,
   .score-team2-score {
-    font-size: 2.5rem;
-    min-width: 80px;
-    width: 80px;
-    padding: 15px 20px;
+    font-size: 1.8rem;
+    min-width: 60px;
+    width: 60px;
+    padding: 1vh 1.5vw;
   }
 
   .score-divider {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .score-winner-logo {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
   }
 
   .score-winner-logo-placeholder {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
   }
 
   .score-footer {
     margin-top: auto;
+    padding-top: 1vh;
   }
 
   .score-last-updated {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 0;
   }
 
   .score-footer-credits {
-    bottom: 30px;
-    right: 40px;
+    bottom: 2vh;
+    right: 2vw;
   }
 
   .score-footer-name {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .score-footer-suggestions {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
