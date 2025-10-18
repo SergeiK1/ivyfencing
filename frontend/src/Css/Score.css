@@ -200,6 +200,17 @@
   min-width: 60px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.score-total-crown {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 /* Score VS Section */
@@ -252,7 +263,7 @@
 
 .score-clinch-square {
   width: 12px;
-  height: calc((100% - 26px) / 13);
+  height: 12px;
   background-color: #e9ecef;
   border: 1px solid #dee2e6;
   border-radius: 2px;
@@ -265,15 +276,25 @@
 }
 
 .score-clinch-square.winning-square {
-  height: calc((100% - 26px) / 13 + 10px);
-  border: 2px solid #FFD700;
-  border-radius: 3px;
+  border: 1px solid #FFD700;
+  border-radius: 2px;
+  position: relative;
 }
 
 .score-clinch-square.winning-square.filled {
-  background-color: #228B22;
+  background-color: #FFD700;
   border-color: #FFD700;
   box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.score-clinch-crown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
 /* Score Breakdown */
@@ -414,6 +435,168 @@
   box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
+/* Large Screen / TV Optimization */
+@media (min-width: 1920px) {
+  .score-page-container {
+    max-width: 100%;
+    padding: 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .score-page-header {
+    margin-bottom: 40px;
+  }
+
+  .score-page-title {
+    font-size: 4rem;
+  }
+
+  .score-page-gender {
+    font-size: 2rem;
+  }
+
+  .score-cards-grid {
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+  }
+
+  .score-cards-grid .score-card {
+    flex: 1;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+  }
+
+  .score-card {
+    padding: 50px;
+  }
+
+  .score-matchup {
+    padding: 40px;
+    margin-bottom: 50px;
+  }
+
+  .score-team-logo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .score-team-name {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .score-total {
+    font-size: 3.5rem;
+    padding: 20px 35px;
+    min-width: 100px;
+    gap: 12px;
+  }
+
+  .score-total-crown {
+    width: 50px;
+    height: 50px;
+  }
+
+  .score-vs {
+    font-size: 3rem;
+    margin: 0 40px;
+  }
+
+  .score-clinch-square {
+    width: 20px;
+    height: 20px;
+  }
+
+  .score-clinch-bar {
+    gap: 4px;
+  }
+
+  .score-clinch-bar-left {
+    right: -30px;
+  }
+
+  .score-clinch-bar-right {
+    left: -30px;
+  }
+
+  .score-breakdown {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .score-breakdown h3 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .score-weapon-row {
+    padding: 25px 35px;
+    gap: 25px;
+    margin-bottom: 15px;
+  }
+
+  .score-weapon-label {
+    font-size: 2rem;
+    width: 150px;
+  }
+
+  .score-weapon-scores {
+    gap: 15px;
+  }
+
+  .score-team1-score,
+  .score-team2-score {
+    font-size: 2.5rem;
+    min-width: 80px;
+    width: 80px;
+    padding: 15px 20px;
+  }
+
+  .score-divider {
+    font-size: 2rem;
+  }
+
+  .score-winner-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score-winner-logo-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score-footer {
+    margin-top: auto;
+  }
+
+  .score-last-updated {
+    font-size: 1.5rem;
+  }
+
+  .score-footer-credits {
+    bottom: 30px;
+    right: 40px;
+  }
+
+  .score-footer-name {
+    font-size: 1.2rem;
+  }
+
+  .score-footer-suggestions {
+    font-size: 1rem;
+  }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .score-page-container {
@@ -482,10 +665,16 @@
   .score-total {
     font-size: 1.3rem;
     padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .score-total-crown {
+    width: 20px;
+    height: 20px;
   }
 
   .score-vs {
-    margin: 0 5px;
+    margin: 0 15px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #228B22;
@@ -557,6 +746,7 @@
 
   .score-clinch-square {
     width: 10px;
+    height: 10px;
   }
 }
 
@@ -616,10 +806,16 @@
   .score-total {
     font-size: 1.2rem;
     padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .score-total-crown {
+    width: 18px;
+    height: 18px;
   }
 
   .score-vs {
-    margin: 0 3px;
+    margin: 0 10px;
     font-size: 1rem;
   }
   
@@ -689,6 +885,7 @@
 
   .score-clinch-square {
     width: 8px;
+    height: 8px;
   }
 
   .score-clinch-bar {

@@ -34,7 +34,12 @@ function ScoreCard({ matchup, gender, onDelete, showDelete }) {
             className="score-team-logo"
           />
           <h2 className="score-team-name">{team1.name}</h2>
-          <div className="score-total">{rivalryData.scores[team1.name]?.total || 0}</div>
+          <div className="score-total">
+            {rivalryData.scores[team1.name]?.total || 0}
+            {(rivalryData.scores[team1.name]?.total || 0) >= 14 && (
+              <img src="/crown.png" alt="Winner" className="score-total-crown" />
+            )}
+          </div>
 
           {/* Clinch Bar for Team 1 - positioned on right (inside) */}
           <div className="score-clinch-bar score-clinch-bar-left">
@@ -48,7 +53,11 @@ function ScoreCard({ matchup, gender, onDelete, showDelete }) {
                 <div
                   key={index}
                   className={`score-clinch-square ${isFilled ? 'filled' : ''} ${isWinningSquare ? 'winning-square' : ''}`}
-                />
+                >
+                  {isWinningSquare && isFilled && (
+                    <img src="/crown.png" alt="Crown" className="score-clinch-crown" />
+                  )}
+                </div>
               );
             })}
           </div>
@@ -69,7 +78,11 @@ function ScoreCard({ matchup, gender, onDelete, showDelete }) {
                 <div
                   key={index}
                   className={`score-clinch-square ${isFilled ? 'filled' : ''} ${isWinningSquare ? 'winning-square' : ''}`}
-                />
+                >
+                  {isWinningSquare && isFilled && (
+                    <img src="/crown.png" alt="Crown" className="score-clinch-crown" />
+                  )}
+                </div>
               );
             })}
           </div>
@@ -80,7 +93,12 @@ function ScoreCard({ matchup, gender, onDelete, showDelete }) {
             className="score-team-logo"
           />
           <h2 className="score-team-name">{team2.name}</h2>
-          <div className="score-total">{rivalryData.scores[team2.name]?.total || 0}</div>
+          <div className="score-total">
+            {rivalryData.scores[team2.name]?.total || 0}
+            {(rivalryData.scores[team2.name]?.total || 0) >= 14 && (
+              <img src="/crown.png" alt="Winner" className="score-total-crown" />
+            )}
+          </div>
         </div>
       </div>
 
