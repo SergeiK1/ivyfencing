@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { authManager } from '../utils/authUtils';
 import '../Css/AdminLogin.css';
 
+// AdminLogin component handles admin authentication
 function AdminLogin({ onAuthenticated }) {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
