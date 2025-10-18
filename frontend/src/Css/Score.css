@@ -495,48 +495,48 @@
   }
 
   .score-team-logo {
-    width: 120px;
-    height: 120px;
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(60px, 8vw, 100px);
     margin-bottom: 1vh;
   }
 
   .score-team-name {
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
     margin-bottom: 1vh;
   }
 
   .score-total {
-    font-size: 2.5rem;
-    padding: 1vh 2vw;
-    min-width: 80px;
-    gap: 10px;
+    font-size: clamp(1.5rem, 1.8vw, 2.2rem);
+    padding: 1vh 1.5vw;
+    min-width: clamp(50px, 5vw, 70px);
+    gap: 8px;
   }
 
   .score-total-crown {
-    width: 35px;
-    height: 35px;
+    width: clamp(20px, 2vw, 30px);
+    height: clamp(20px, 2vw, 30px);
   }
 
   .score-vs {
-    font-size: 2rem;
-    margin: 0 2vw;
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+    margin: 0 1vw;
   }
 
   .score-clinch-square {
-    width: 16px;
-    height: 16px;
+    width: clamp(10px, 1.2vw, 14px);
+    height: clamp(10px, 1.2vw, 14px);
   }
 
   .score-clinch-bar {
-    gap: 3px;
+    gap: 2px;
   }
 
   .score-clinch-bar-left {
-    right: -25px;
+    right: clamp(-18px, -1.5vw, -22px);
   }
 
   .score-clinch-bar-right {
-    left: -25px;
+    left: clamp(-18px, -1.5vw, -22px);
   }
 
   .score-breakdown {
@@ -549,45 +549,45 @@
   }
 
   .score-breakdown h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 1.4vw, 1.6rem);
     margin-bottom: 1.5vh;
   }
 
   .score-weapon-row {
-    padding: 1.5vh 2vw;
-    gap: 1.5vw;
+    padding: 1.5vh 1vw;
+    gap: 0.8vw;
     margin-bottom: 0.5vh;
   }
 
   .score-weapon-label {
-    font-size: 1.5rem;
-    width: 120px;
+    font-size: clamp(1rem, 1.1vw, 1.3rem);
+    width: clamp(60px, 7vw, 100px);
   }
 
   .score-weapon-scores {
-    gap: 1vw;
+    gap: 0.5vw;
   }
 
   .score-team1-score,
   .score-team2-score {
-    font-size: 1.8rem;
-    min-width: 60px;
-    width: 60px;
-    padding: 1vh 1.5vw;
+    font-size: clamp(1.1rem, 1.3vw, 1.6rem);
+    min-width: clamp(35px, 4vw, 55px);
+    width: clamp(35px, 4vw, 55px);
+    padding: 0.8vh 1vw;
   }
 
   .score-divider {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
   }
 
   .score-winner-logo {
-    width: 70px;
-    height: 70px;
+    width: clamp(40px, 5vw, 65px);
+    height: clamp(40px, 5vw, 65px);
   }
 
   .score-winner-logo-placeholder {
-    width: 70px;
-    height: 70px;
+    width: clamp(40px, 5vw, 65px);
+    height: clamp(40px, 5vw, 65px);
   }
 
   .score-footer {
