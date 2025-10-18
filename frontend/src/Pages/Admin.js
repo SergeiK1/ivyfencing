@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../Css/Admin.css';
-import { 
-  getRivalryData, 
-  updateRivalryScores, 
+import {
+  getRivalryData,
+  updateRivalryScores,
   getSchoolsByGender,
   getRivalriesByGender
 } from '../utils/scoreManager';
@@ -17,21 +17,31 @@ function Admin() {
   const [saveStatus, setSaveStatus] = useState('');
   const [dropdown1Open, setDropdown1Open] = useState(false);
   const [dropdown2Open, setDropdown2Open] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const availableSchools = getSchoolsByGender(gender);
 
   // Load existing rivalries when gender changes
   useEffect(() => {
-    setExistingRivalries(getRivalriesByGender(gender));
+    const loadRivalries = async () => {
+      setIsLoading(true);
+      const rivalries = await getRivalriesByGender(gender);
+      setExistingRivalries(rivalries);
+      setIsLoading(false);
+    };
+    loadRivalries();
   }, [gender]);
 
   // Load rivalry data when teams are selected
   useEffect(() => {
-    if (selectedTeam1 && selectedTeam2 && selectedTeam1 !== selectedTeam2) {
-      const rivalryData = getRivalryData(selectedTeam1, selectedTeam2, gender);
-      setTeam1Scores(rivalryData.scores[selectedTeam1] || { sabre: 0, foil: 0, epee: 0 });
-      setTeam2Scores(rivalryData.scores[selectedTeam2] || { sabre: 0, foil: 0, epee: 0 });
-    }
+    const loadRivalryData = async () => {
+      if (selectedTeam1 && selectedTeam2 && selectedTeam1 !== selectedTeam2) {
+        const rivalryData = await getRivalryData(selectedTeam1, selectedTeam2, gender);
+        setTeam1Scores(rivalryData.scores[selectedTeam1] || { sabre: 0, foil: 0, epee: 0 });
+        setTeam2Scores(rivalryData.scores[selectedTeam2] || { sabre: 0, foil: 0, epee: 0 });
+      }
+    };
+    loadRivalryData();
   }, [selectedTeam1, selectedTeam2, gender]);
 
   const handleGenderChange = (newGender) => {
@@ -43,35 +53,26 @@ function Admin() {
     setSaveStatus('');
   };
 
-
-
-  // const autoSave = () => {
-  //   if (selectedTeam1 && selectedTeam2 && selectedTeam1 !== selectedTeam2) {
-  //     const success1 = updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, team1Scores);
-  //     const success2 = updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, team2Scores);
-      
-  //     if (success1 && success2) {
-  //       setExistingRivalries(getRivalriesByGender(gender));
-  //       setSaveStatus('Auto-saved!');
-  //       setTimeout(() => setSaveStatus(''), 1500);
-  //     }
-  //   }
-  // };
-
   const handleTeam1ScoreChange = (weapon, value) => {
     const newScores = {
       ...team1Scores,
       [weapon]: parseInt(value) || 0
     };
     setTeam1Scores(newScores);
-    
+
     // Auto-save after a short delay
-    setTimeout(() => {
+    setTimeout(async () => {
       if (selectedTeam1 && selectedTeam2) {
-        updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, newScores);
-        setExistingRivalries(getRivalriesByGender(gender));
-        setSaveStatus('Auto-saved!');
-        setTimeout(() => setSaveStatus(''), 1500);
+        const success = await updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, newScores);
+        if (success) {
+          const rivalries = await getRivalriesByGender(gender);
+          setExistingRivalries(rivalries);
+          setSaveStatus('Auto-saved!');
+          setTimeout(() => setSaveStatus(''), 1500);
+        } else {
+          setSaveStatus('Error saving!');
+          setTimeout(() => setSaveStatus(''), 2000);
+        }
       }
     }, 500);
   };
@@ -82,14 +83,20 @@ function Admin() {
       [weapon]: parseInt(value) || 0
     };
     setTeam2Scores(newScores);
-    
+
     // Auto-save after a short delay
-    setTimeout(() => {
+    setTimeout(async () => {
       if (selectedTeam1 && selectedTeam2) {
-        updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, newScores);
-        setExistingRivalries(getRivalriesByGender(gender));
-        setSaveStatus('Auto-saved!');
-        setTimeout(() => setSaveStatus(''), 1500);
+        const success = await updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, newScores);
+        if (success) {
+          const rivalries = await getRivalriesByGender(gender);
+          setExistingRivalries(rivalries);
+          setSaveStatus('Auto-saved!');
+          setTimeout(() => setSaveStatus(''), 1500);
+        } else {
+          setSaveStatus('Error saving!');
+          setTimeout(() => setSaveStatus(''), 2000);
+        }
       }
     }, 500);
   };
@@ -98,21 +105,20 @@ function Admin() {
     return scores.sabre + scores.foil + scores.epee;
   };
 
-
-
-  const handleClearCurrentScores = () => {
+  const handleClearCurrentScores = async () => {
     if (window.confirm('Are you sure you want to clear the scores for this matchup?')) {
       const clearedScores = { sabre: 0, foil: 0, epee: 0 };
       setTeam1Scores(clearedScores);
       setTeam2Scores(clearedScores);
-      
-      // Auto-save the cleared scores
+
+      // Save the cleared scores
       if (selectedTeam1 && selectedTeam2) {
-        updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, clearedScores);
-        updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, clearedScores);
-        setExistingRivalries(getRivalriesByGender(gender));
+        await updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam1, clearedScores);
+        await updateRivalryScores(selectedTeam1, selectedTeam2, gender, selectedTeam2, clearedScores);
+        const rivalries = await getRivalriesByGender(gender);
+        setExistingRivalries(rivalries);
       }
-      
+
       setSaveStatus('Current matchup scores cleared and saved!');
       setTimeout(() => setSaveStatus(''), 3000);
     }
@@ -134,7 +140,7 @@ function Admin() {
   const CustomDropdown = ({ value, onChange, placeholder, excludeValue, isOpen, setIsOpen, dropdownId }) => {
     return (
       <div className="admin-custom-dropdown">
-        <div 
+        <div
           className={`admin-dropdown-selected ${isOpen ? 'admin-dropdown-open' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -153,8 +159,8 @@ function Admin() {
             {availableSchools
               .filter(school => school !== excludeValue)
               .map(school => (
-                <div 
-                  key={school} 
+                <div
+                  key={school}
                   className="admin-dropdown-option"
                   onClick={() => {
                     onChange(school);
@@ -207,7 +213,7 @@ function Admin() {
 
     return (
       <div className="admin-custom-number-input">
-        <button 
+        <button
           className="admin-number-btn admin-minus-btn"
           onClick={handleDecrement}
           disabled={value <= min}
@@ -226,14 +232,14 @@ function Admin() {
             min={min}
           />
         ) : (
-          <div 
+          <div
             className="admin-number-display"
             onClick={handleNumberClick}
           >
             {value}
           </div>
         )}
-        <button 
+        <button
           className="admin-number-btn admin-plus-btn"
           onClick={handleIncrement}
         >
@@ -246,16 +252,16 @@ function Admin() {
   return (
     <div className="admin-container">
       <h1 className="admin-title">Score Management</h1>
-      
+
       {/* Gender Toggle */}
       <div className="admin-gender-toggle">
-        <button 
+        <button
           className={`admin-toggle-btn ${gender === 'women' ? 'admin-active' : ''}`}
           onClick={() => handleGenderChange('women')}
         >
           Women
         </button>
-        <button 
+        <button
           className={`admin-toggle-btn ${gender === 'men' ? 'admin-active' : ''}`}
           onClick={() => handleGenderChange('men')}
         >
@@ -269,7 +275,7 @@ function Admin() {
         <div className="admin-team-selectors">
           <div className="admin-team-selector">
             <label>Team 1:</label>
-            <CustomDropdown 
+            <CustomDropdown
               value={selectedTeam1}
               onChange={setSelectedTeam1}
               placeholder="Select Team 1"
@@ -282,7 +288,7 @@ function Admin() {
           <div className="admin-vs-divider">VS</div>
           <div className="admin-team-selector">
             <label>Team 2:</label>
-            <CustomDropdown 
+            <CustomDropdown
               value={selectedTeam2}
               onChange={setSelectedTeam2}
               placeholder="Select Team 2"
@@ -309,7 +315,7 @@ function Admin() {
               <div className="admin-weapon-inputs">
                 <div className="admin-weapon-input">
                   <label>Sabre:</label>
-                  <CustomNumberInput 
+                  <CustomNumberInput
                     value={team1Scores.sabre}
                     onChange={(value) => handleTeam1ScoreChange('sabre', value)}
                     min={0}
@@ -317,7 +323,7 @@ function Admin() {
                 </div>
                 <div className="admin-weapon-input">
                   <label>Foil:</label>
-                  <CustomNumberInput 
+                  <CustomNumberInput
                     value={team1Scores.foil}
                     onChange={(value) => handleTeam1ScoreChange('foil', value)}
                     min={0}
@@ -325,7 +331,7 @@ function Admin() {
                 </div>
                 <div className="admin-weapon-input">
                   <label>Epee:</label>
-                  <CustomNumberInput 
+                  <CustomNumberInput
                     value={team1Scores.epee}
                     onChange={(value) => handleTeam1ScoreChange('epee', value)}
                     min={0}
@@ -346,7 +352,7 @@ function Admin() {
               <div className="admin-weapon-inputs">
                 <div className="admin-weapon-input">
                   <label>Sabre:</label>
-                  <CustomNumberInput 
+                  <CustomNumberInput
                     value={team2Scores.sabre}
                     onChange={(value) => handleTeam2ScoreChange('sabre', value)}
                     min={0}
@@ -354,7 +360,7 @@ function Admin() {
                 </div>
                 <div className="admin-weapon-input">
                   <label>Foil:</label>
-                  <CustomNumberInput 
+                  <CustomNumberInput
                     value={team2Scores.foil}
                     onChange={(value) => handleTeam2ScoreChange('foil', value)}
                     min={0}
@@ -362,7 +368,7 @@ function Admin() {
                 </div>
                 <div className="admin-weapon-input">
                   <label>Epee:</label>
-                  <CustomNumberInput 
+                  <CustomNumberInput
                     value={team2Scores.epee}
                     onChange={(value) => handleTeam2ScoreChange('epee', value)}
                     min={0}
@@ -392,13 +398,15 @@ function Admin() {
       )}
 
       {/* Existing Rivalries */}
-      {Object.keys(existingRivalries).length > 0 && (
+      {isLoading ? (
+        <div className="admin-loading">Loading rivalries...</div>
+      ) : Object.keys(existingRivalries).length > 0 ? (
         <div className="admin-existing-rivalries">
           <h2 className="admin-section-title">Existing {gender.charAt(0).toUpperCase() + gender.slice(1)}'s Rivalries</h2>
           <div className="admin-rivalries-grid">
             {Object.entries(existingRivalries).map(([key, rivalry]) => (
-              <div 
-                key={key} 
+              <div
+                key={key}
                 className="admin-rivalry-card admin-rivalry-clickable"
                 onClick={() => handleRivalryClick(rivalry)}
               >
@@ -429,7 +437,7 @@ function Admin() {
             ))}
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

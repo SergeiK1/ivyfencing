@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../Css/Score.css';
 import { getRivalryData } from '../utils/scoreManager';
@@ -6,7 +6,26 @@ import { getRivalryData } from '../utils/scoreManager';
 // Score Card Component
 function ScoreCard({ matchup, gender, onDelete, showDelete }) {
   const { team1, team2 } = matchup;
-  const rivalryData = getRivalryData(team1.name, team2.name, gender);
+  const [rivalryData, setRivalryData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadRivalryData = async () => {
+      setIsLoading(true);
+      const data = await getRivalryData(team1.name, team2.name, gender);
+      setRivalryData(data);
+      setIsLoading(false);
+    };
+    loadRivalryData();
+  }, [team1.name, team2.name, gender]);
+
+  if (isLoading || !rivalryData) {
+    return (
+      <div className="score-card">
+        <div className="score-loading">Loading scores...</div>
+      </div>
+    );
+  }
 
   // Helper function to get winning team for a weapon
   const getWinningTeam = (weapon) => {

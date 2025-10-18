@@ -80,6 +80,15 @@
   position: relative;
 }
 
+.score-loading,
+.admin-loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 .score-card-delete-btn {
   position: absolute;
   top: 15px;
