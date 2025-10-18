@@ -438,7 +438,8 @@
 /* Large Screen / TV Optimization */
 @media (min-width: 1920px) {
   .score-page-container {
-    max-width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
     padding: 2vh;
     height: 100vh;
     display: flex;
