@@ -486,57 +486,57 @@
   }
 
   .score-card {
-    padding: 2vh 2vw;
+    padding: 2vh 1.5vw;
   }
 
   .score-matchup {
-    padding: 2vh 2vw;
+    padding: 2vh 1.5vw;
     margin-bottom: 2vh;
   }
 
   .score-team-logo {
-    width: clamp(60px, 8vw, 100px);
-    height: clamp(60px, 8vw, 100px);
+    width: clamp(70px, 6vw, 110px);
+    height: clamp(70px, 6vw, 110px);
     margin-bottom: 1vh;
   }
 
   .score-team-name {
-    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    font-size: clamp(1.1rem, 1vw, 1.6rem);
     margin-bottom: 1vh;
   }
 
   .score-total {
-    font-size: clamp(1.5rem, 1.8vw, 2.2rem);
-    padding: 1vh 1.5vw;
-    min-width: clamp(50px, 5vw, 70px);
-    gap: 8px;
+    font-size: clamp(1.6rem, 1.5vw, 2.3rem);
+    padding: 1vh 1.2vw;
+    min-width: clamp(55px, 4.5vw, 75px);
+    gap: clamp(6px, 0.6vw, 10px);
   }
 
   .score-total-crown {
-    width: clamp(20px, 2vw, 30px);
-    height: clamp(20px, 2vw, 30px);
+    width: clamp(22px, 1.8vw, 32px);
+    height: clamp(22px, 1.8vw, 32px);
   }
 
   .score-vs {
-    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
-    margin: 0 1vw;
+    font-size: clamp(1.3rem, 1.3vw, 1.9rem);
+    margin: 0 clamp(10px, 1.2vw, 20px);
   }
 
   .score-clinch-square {
-    width: clamp(10px, 1.2vw, 14px);
-    height: clamp(10px, 1.2vw, 14px);
+    width: clamp(11px, 1vw, 15px);
+    height: clamp(11px, 1vw, 15px);
   }
 
   .score-clinch-bar {
-    gap: 2px;
+    gap: clamp(2px, 0.15vw, 3px);
   }
 
   .score-clinch-bar-left {
-    right: clamp(-18px, -1.5vw, -22px);
+    right: clamp(-22px, -1.8vw, -28px);
   }
 
   .score-clinch-bar-right {
-    left: clamp(-18px, -1.5vw, -22px);
+    left: clamp(-22px, -1.8vw, -28px);
   }
 
   .score-breakdown {
@@ -549,45 +549,45 @@
   }
 
   .score-breakdown h3 {
-    font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+    font-size: clamp(1.3rem, 1.2vw, 1.7rem);
     margin-bottom: 1.5vh;
   }
 
   .score-weapon-row {
-    padding: 1.5vh 1vw;
-    gap: 0.8vw;
-    margin-bottom: 0.5vh;
+    padding: 1.2vh 1.2vw;
+    gap: clamp(10px, 1vw, 18px);
+    margin-bottom: 0.8vh;
   }
 
   .score-weapon-label {
-    font-size: clamp(1rem, 1.1vw, 1.3rem);
-    width: clamp(60px, 7vw, 100px);
+    font-size: clamp(1.05rem, 0.95vw, 1.35rem);
+    width: clamp(70px, 6vw, 110px);
   }
 
   .score-weapon-scores {
-    gap: 0.5vw;
+    gap: clamp(6px, 0.6vw, 10px);
   }
 
   .score-team1-score,
   .score-team2-score {
-    font-size: clamp(1.1rem, 1.3vw, 1.6rem);
-    min-width: clamp(35px, 4vw, 55px);
-    width: clamp(35px, 4vw, 55px);
-    padding: 0.8vh 1vw;
+    font-size: clamp(1.15rem, 1.1vw, 1.65rem);
+    min-width: clamp(40px, 3.5vw, 58px);
+    width: clamp(40px, 3.5vw, 58px);
+    padding: 0.8vh 0.8vw;
   }
 
   .score-divider {
-    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    font-size: clamp(1.05rem, 1vw, 1.45rem);
   }
 
   .score-winner-logo {
-    width: clamp(40px, 5vw, 65px);
-    height: clamp(40px, 5vw, 65px);
+    width: clamp(48px, 4vw, 68px);
+    height: clamp(48px, 4vw, 68px);
   }
 
   .score-winner-logo-placeholder {
-    width: clamp(40px, 5vw, 65px);
-    height: clamp(40px, 5vw, 65px);
+    width: clamp(48px, 4vw, 68px);
+    height: clamp(48px, 4vw, 68px);
   }
 
   .score-footer {
