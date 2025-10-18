@@ -473,11 +473,14 @@
     gap: 2vw;
     align-items: stretch;
     overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .score-cards-grid .score-card {
-    flex: 1;
-    max-width: none;
+    flex: 1 1 auto;
+    min-width: 550px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
