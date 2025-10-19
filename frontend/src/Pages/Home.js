@@ -168,7 +168,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Ivy League Fencing Matchup</h1>
+      <h1 className="home-title">Ivy League Fencing Championships</h1>
       
       {/* Gender Toggle */}
       <div className="home-gender-toggle">
